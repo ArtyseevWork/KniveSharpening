@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_angle.xml" value="0.22435897435897437" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_knive.xml" value="0.4173913181932306" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_main.xml" value="0.2754782700075322" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_profits.xml" value="0.209375" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/knive_card.xml" value="0.2754782700075322" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/knive_card_old.xml" value="0.2754782700075322" />
+        <entry key="..\:/Users/Artyseev/AndroidStudioProjects/Knifesharpening/app/src/main/res/layout/activity_knive.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/Artyseev/AndroidStudioProjects/Knifesharpening/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Users/Artyseev/AndroidStudioProjects/Knifesharpening/app/src/main/res/layout/activity_profits.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/Artyseev/AndroidStudioProjects/Knifesharpening/app/src/main/res/layout/profit_card.xml" value="0.12552083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

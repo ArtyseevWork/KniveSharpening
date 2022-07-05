@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.KniveActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_knive_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_knive_previous_knive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="previousKnive"
+            android:text="@string/previous" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_knive_next_knive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="nextKnive"
+            android:text="@string/next" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/cl_knive_body"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/cl_knive_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/ll_knive_top"
+        app:layout_constraintVertical_bias="0.0" tools:layout_editor_absoluteX="0dp">
+
+        <TextView android:id="@+id/tv_knive_name_title" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="35dp"
+            android:text="@string/name" app:layout_constraintBottom_toBottomOf="@+id/et_knive_name"
+            app:layout_constraintEnd_toStartOf="@+id/et_knive_name"
+            app:layout_constraintTop_toTopOf="@+id/et_knive_name" />
+
+        <EditText
+            android:id="@+id/et_knive_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:inputType="textCapSentences"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView android:id="@+id/tv_knive_angle_title" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="@string/angel"
+            app:layout_constraintBottom_toBottomOf="@+id/et_knive_angle"
+            app:layout_constraintEnd_toEndOf="@+id/tv_knive_name_title"
+            app:layout_constraintTop_toTopOf="@+id/et_knive_angle" />
+
+        <EditText android:id="@+id/et_knive_angle" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="25dp" android:ems="10"
+            android:inputType="numberDecimal" app:layout_constraintStart_toStartOf="@+id/et_knive_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_knive_name" />
+
+        <TextView android:id="@+id/tv_knive_date_title" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="@string/date"
+            app:layout_constraintBottom_toBottomOf="@+id/et_knive_date"
+            app:layout_constraintEnd_toEndOf="@+id/tv_knive_angle_title"
+            app:layout_constraintTop_toTopOf="@+id/et_knive_date" />
+
+        <EditText android:id="@+id/et_knive_date" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="25dp" android:ems="10"
+            android:inputType="date" app:layout_constraintStart_toStartOf="@+id/et_knive_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_knive_angle" />
+
+        <TextView android:id="@+id/tv_knive_description_title" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="@string/description"
+            app:layout_constraintBottom_toBottomOf="@+id/et_knive_description"
+            app:layout_constraintEnd_toEndOf="@+id/tv_knive_name_title"
+            app:layout_constraintTop_toTopOf="@+id/et_knive_description" />
+
+        <EditText android:id="@+id/et_knive_description" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="25dp" android:ems="10"
+            android:gravity="start|top" android:inputType="textCapSentences"
+            app:layout_constraintStart_toStartOf="@+id/et_knive_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_knive_date" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_knive_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_knive_add_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="addEditKnive"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_knive_sharpen"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_knive_sharpen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="sharpenKnive"
+            android:text="@string/sharpen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_knive_delete"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_knive_add_edit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_knive_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="deleteKnive"
+            android:text="@string/delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_knive_sharpen"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

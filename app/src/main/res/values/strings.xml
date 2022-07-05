@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Knife sharpening</string>
+    <string name="name">Имя</string>
+    <string name="date">Дата</string>
+    <string name="description">Примечание</string>
+    <string name="status">Статус</string>
+    <string name="angel">Угол</string>
+    <string name="next">Следующий</string>
+    <string name="previous">Предыдущий</string>
+    <string name="add">Добавить</string>
+    <string name="edit">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
+    <string name="sharpen">Наточить</string>
+    <string name="sharpen.2">Наточить2</string>
+</resources>
