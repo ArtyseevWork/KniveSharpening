@@ -9,13 +9,15 @@
     android:layout_margin="10dp"
     app:cardBackgroundColor="@android:color/transparent"
     android:textAlignment="center"
-    app:cardElevation="0dp">
+    app:cardElevation="0dp"
+    >
 
     <LinearLayout
         android:id="@+id/ll_knive_card_border"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/ic_card_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_card_knive_name_fill"

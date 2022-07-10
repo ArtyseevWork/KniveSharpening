@@ -31,15 +31,13 @@ public class KniveActivity extends AppCompatActivity {
     java.util.Date normalTime;
 
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_knive);
         Bundle arguments = getIntent().getExtras();
-        Long kniveId =arguments.getLong("EXTRA_KNIVE_ID");
+        long kniveId =arguments.getLong("EXTRA_KNIVE_ID");
 
-        Toast toast = Toast.makeText(this, "knive 41 " + kniveId, Toast.LENGTH_LONG);
-        toast.show();
+
 
         if ( kniveId !=0 ){
             knive = Knive.getKniveById(this, kniveId);
@@ -58,10 +56,10 @@ public class KniveActivity extends AppCompatActivity {
         normalTime=new java.util.Date(knive.getLastSharpening() * 1000);
         etKniveDate.setText(dateFormat.format( normalTime ) );
         etKniveDescription.setText(knive.getDescription());
-
-
-
     }
+
+
+    /********** Buttons block **********/
     public void nextKnive(View view) {
             Intent intent = new Intent(KniveActivity.this, KniveActivity.class);
             intent.putExtra("EXTRA_KNIVE_ID", knive.getId()+1);
@@ -75,15 +73,39 @@ public class KniveActivity extends AppCompatActivity {
     }
 
     public void addEditKnive(View view) {
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        Knive.updKnive(db,knive);
+        db.close();
     }
 
     public void sharpenKnive(View view) {
         Intent intent = new Intent(KniveActivity.this, AngleActivity.class);
-        //intent.putExtra("EXTRA_KNIVE_ID", knive.getId());
+        intent.putExtra("EXTRA_KNIVE_ID", knive.getId());
         startActivity(intent);
 
     }
 
     public void deleteKnive(View view) {
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        knive.setStatus(Status.statusDis);
+        Knive.updKnive(db,knive);
+        db.close();
     }
+    /* ******* ! Buttons block **********/
+
+
+    /********** Button back **********/
+    public void goBack() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+    /* *******! Button back **********/
+
 }

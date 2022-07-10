@@ -69,6 +69,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Knive.insKnive(db, new Knive(0, "cheese knife4", "present from my granny4", 45, 0, 100));
         Knive.insKnive(db, new Knive(0, "cheese knife5", "present from my granny5", 23, 0, 400));
         Knive.insKnive(db, new Knive(0, "cheese knife6", "present from my granny46", 45, 0, 400));
+        Knive.insKnive(db, new Knive(0, "cheese knife41", "present from my granny2", 35, 0, 100));
+        Knive.insKnive(db, new Knive(0, "cheese knife42", "present from my granny1", 25, 0, 100));
+        Knive.insKnive(db, new Knive(0, "cheese knife43", "present from my granny3", 15, 0, 100));
+        Knive.insKnive(db, new Knive(0, "cheese knife44", "present from my granny4", 45, 0, 100));
+        Knive.insKnive(db, new Knive(0, "cheese knife45", "present from my granny5", 23, 0, 400));
+        Knive.insKnive(db, new Knive(0, "cheese knife46", "present from my granny46", 45, 0, 400));
 
     }
 }

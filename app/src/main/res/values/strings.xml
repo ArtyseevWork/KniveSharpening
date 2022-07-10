@@ -1,16 +1,39 @@
 <resources>
+    <!-- general_start -->
     <string name="app_name">Knife sharpening</string>
+    <string name="next">Следующий</string>
+    <string name="previous">Предыдущий</string>
+    <string name="sample_text">Предпросмотр</string>
+    <!-- general_end   -->
+
+    <!-- activity_main start -->
+    <string name="activity_main_exit_message">Нажмите ещё раз, для выхода.</string>
+
+    <!-- activity main end   -->
+
+    <!-- activity_knive start -->
     <string name="name">Имя</string>
     <string name="date">Дата</string>
     <string name="description">Примечание</string>
     <string name="status">Статус</string>
     <string name="angel">Угол</string>
-    <string name="next">Следующий</string>
-    <string name="previous">Предыдущий</string>
     <string name="add">Добавить</string>
     <string name="edit">Изменить</string>
     <string name="delete">Удалить</string>
     <string name="save">Сохранить</string>
     <string name="sharpen">Наточить</string>
     <string name="sharpen.2">Наточить2</string>
+    <!-- activity knive end   -->
+
+    <!-- activity_angle start -->
+    <string name="level">Уровень</string>
+    <string name="done">Готово</string>
+    <!-- activity_angle end   -->
+
+
+
+
+
+
+
 </resources>
