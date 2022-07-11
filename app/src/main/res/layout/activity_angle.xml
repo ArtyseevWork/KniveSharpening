@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tv_angle_knive_angle"
+            android:id="@+id/tv_angle_knife_angle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_angle_knive_name"
+            android:id="@+id/tv_angle_knife_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:onClick="saveKnive"
+        android:onClick="saveKnife"
         android:text="@string/done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

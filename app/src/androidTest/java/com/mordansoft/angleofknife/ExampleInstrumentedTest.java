@@ -1,4 +1,4 @@
-package com.example.knifesharpening;
+package com.mordansoft.angleofknife;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

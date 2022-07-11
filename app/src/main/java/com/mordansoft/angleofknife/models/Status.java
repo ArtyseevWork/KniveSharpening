@@ -1,4 +1,4 @@
-package com.example.knifesharpening.models;
+package com.mordansoft.angleofknife.models;
 
 public class Status {
     public final static int statusNew = 100;

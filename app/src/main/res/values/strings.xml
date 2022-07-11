@@ -1,8 +1,7 @@
 <resources>
     <!-- general_start -->
-    <string name="app_name">Knife sharpening</string>
-    <string name="next">Следующий</string>
-    <string name="previous">Предыдущий</string>
+    <string name="app_name">Angle of Knife</string>
+
     <string name="sample_text">Предпросмотр</string>
     <!-- general_end   -->
 
@@ -11,7 +10,9 @@
 
     <!-- activity main end   -->
 
-    <!-- activity_knive start -->
+    <!-- activity_knife start -->
+    <string name="next">Следующий</string>
+    <string name="previous">Предыдущий</string>
     <string name="name">Имя</string>
     <string name="date">Дата</string>
     <string name="description">Примечание</string>
@@ -23,7 +24,7 @@
     <string name="save">Сохранить</string>
     <string name="sharpen">Наточить</string>
     <string name="sharpen.2">Наточить2</string>
-    <!-- activity knive end   -->
+    <!-- activity knife end   -->
 
     <!-- activity_angle start -->
     <string name="level">Уровень</string>

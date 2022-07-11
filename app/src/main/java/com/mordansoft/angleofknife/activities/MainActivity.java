@@ -1,4 +1,4 @@
-package com.example.knifesharpening.activities;
+package com.mordansoft.angleofknife.activities;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.knifesharpening.DatabaseHelper;
-import com.example.knifesharpening.models.Knive;
-import com.example.knifesharpening.KniveAdapter;
-import com.example.knifesharpening.R;
+import com.mordansoft.angleofknife.DatabaseHelper;
+import com.mordansoft.angleofknife.models.Knife;
+import com.mordansoft.angleofknife.KnifeAdapter;
+import com.mordansoft.angleofknife.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,18 +40,18 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(view);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        KniveAdapter adapter = new KniveAdapter(Knive.getActiveKnivesFromDatabase(MainActivity.this), this);
+        KnifeAdapter adapter = new KnifeAdapter(Knife.getActiveKnifesFromDatabase(MainActivity.this), this);
         recyclerView.setAdapter(adapter);
-        adapter.setListener(kniveId -> {
-            Intent intent = new Intent(MainActivity.this, KniveActivity.class);
-            intent.putExtra("EXTRA_KNIVE_ID", kniveId);
+        adapter.setListener(knifeId -> {
+            Intent intent = new Intent(MainActivity.this, KnifeActivity.class);
+            intent.putExtra("EXTRA_KNIFE_ID", knifeId);
             startActivity(intent);
         });
     }
 
-    public void addKnive(View view) {
-        Intent intent = new Intent(MainActivity.this, KniveActivity.class);
-        intent.putExtra("EXTRA_KNIVE_ID", 0);
+    public void addKnife(View view) {
+        Intent intent = new Intent(MainActivity.this, KnifeActivity.class);
+        intent.putExtra("EXTRA_KNIFE_ID", 0);
         startActivity(intent);
     }
 

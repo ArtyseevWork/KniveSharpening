@@ -1,4 +1,4 @@
-package com.example.knifesharpening.models;
+package com.mordansoft.angleofknife.models;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,12 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
-import com.example.knifesharpening.DatabaseHelper;
+import com.mordansoft.angleofknife.DatabaseHelper;
 
 import java.util.ArrayList;
 
 
-public class Knive {
+public class Knife {
     private long id;
     private String name;
     private String description;
@@ -22,7 +22,7 @@ public class Knive {
     private int status;
 
     /****** Constructors getters setters *******/
-    public Knive(long id, String name, String description, float angle, long lastSharpening, int status) {
+    public Knife(long id, String name, String description, float angle, long lastSharpening, int status) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -73,15 +73,15 @@ public class Knive {
     }
     /***** !Constructors getters setters *******/
 
-    public static Knive getKniveById(Context context, long id){
+    public static Knife getKnifeById(Context context, long id){
         SQLiteDatabase db;
-        Knive knive = null;
+        Knife knife = null;
         try {
             SQLiteOpenHelper databaseHelper;
 
             databaseHelper = new DatabaseHelper(context);
             db = databaseHelper.getReadableDatabase();
-            Cursor cursor = db.query("KNIVES", new String[]{"name", //0
+            Cursor cursor = db.query("KNIFES", new String[]{"name", //0
                                                                 "description",//1
                                                                 "angle",//2
                                                                 "last_sharpening",//3
@@ -89,9 +89,9 @@ public class Knive {
                     "_id = ?", new String[] {String.valueOf(id)},null,null,null);
 
             if (cursor.moveToFirst()){
-                Toast toast = Toast.makeText(context, "knive " + cursor.getString(0), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(context, "knife " + cursor.getString(0), Toast.LENGTH_LONG);
                 toast.show();
-                knive = new Knive(
+                knife = new Knife(
                         id,
                         cursor.getString(0),
                         cursor.getString(1),
@@ -102,15 +102,15 @@ public class Knive {
             cursor.close();
             db.close();
         } catch(Exception e) {
-            Toast toast = Toast.makeText(context, "getkniveById error: " + e, Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(context, "getknifeById error: " + e, Toast.LENGTH_SHORT);
             toast.show();
         }
 
-        return knive;
+        return knife;
     }
 
-    public static ArrayList<Knive> getActiveKnivesFromDatabase(Context context){
-        ArrayList<Knive> listKnives= new ArrayList<>();
+    public static ArrayList<Knife> getActiveKnifesFromDatabase(Context context){
+        ArrayList<Knife> listKnifes= new ArrayList<>();
         try {
 
             String query = "status < " + Status.statusDis;
@@ -118,7 +118,7 @@ public class Knive {
             SQLiteDatabase db;
             databaseHelper = new DatabaseHelper(context);
             db = databaseHelper.getReadableDatabase();
-            Cursor cursor = db.query("KNIVES", new String[]{"_id",
+            Cursor cursor = db.query("KNIFES", new String[]{"_id",
                             "name",
                             "description",
                             "angle",
@@ -133,45 +133,45 @@ public class Knive {
                 float   angle           = cursor.getFloat(3);
                 long    lastSharpening  = cursor.getLong(4);
                 int     status          = cursor.getInt(5);
-                listKnives.add(new Knive(id,name, description, angle, lastSharpening, status));
+                listKnifes.add(new Knife(id,name, description, angle, lastSharpening, status));
             }
             cursor.close();
             db.close();
         } catch(Exception e) {
-            Toast toast = Toast.makeText(context, "getknivesFromDatabase error: " + e, Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(context, "getknifesFromDatabase error: " + e, Toast.LENGTH_SHORT);
             toast.show();
         }
-        return listKnives;
+        return listKnifes;
     }
 
-    public static long insKnive(SQLiteDatabase db, Knive knive){
-        knive.status = Status.statusNew;
+    public static long insKnife(SQLiteDatabase db, Knife knife){
+        knife.status = Status.statusNew;
         ContentValues contentValues = new ContentValues();
-        contentValues.put("name", knive.name);
-        contentValues.put("description", knive.description);
-        contentValues.put("angle", knive.angle);
-        contentValues.put("last_sharpening", knive.lastSharpening);
-        contentValues.put("status", knive.status);
-        return ( db.insert("KNIVES",null,contentValues));
+        contentValues.put("name", knife.name);
+        contentValues.put("description", knife.description);
+        contentValues.put("angle", knife.angle);
+        contentValues.put("last_sharpening", knife.lastSharpening);
+        contentValues.put("status", knife.status);
+        return ( db.insert("KNIFES",null,contentValues));
     }
 
-    public static void updKnive(SQLiteDatabase db, Knive knive){
+    public static void updKnife(SQLiteDatabase db, Knife knife){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("name", knive.name);
-        contentValues.put("description", knive.description);
-        contentValues.put("angle", knive.angle);
-        contentValues.put("last_sharpening", knive.lastSharpening);
-        contentValues.put("status", knive.status);
-        db.update("KNIVES",contentValues, "_id = ?",new String[] {String.valueOf(knive.id)});
+        contentValues.put("name", knife.name);
+        contentValues.put("description", knife.description);
+        contentValues.put("angle", knife.angle);
+        contentValues.put("last_sharpening", knife.lastSharpening);
+        contentValues.put("status", knife.status);
+        db.update("KNIFES",contentValues, "_id = ?",new String[] {String.valueOf(knife.id)});
     }
 
-    public static void sharpKnive(SQLiteDatabase db, Knive knive){
+    public static void sharpKnife(SQLiteDatabase db, Knife knive){
         knive.lastSharpening = System.currentTimeMillis();;
-        updKnive(db,knive);
+        updKnife(db,knive);
     }
-    public static void delKnive(SQLiteDatabase db, Knive knive){
+    public static void delKnife(SQLiteDatabase db, Knife knive){
        knive.status = Status.statusDis;
-       updKnive(db,knive);
+       updKnife(db,knive);
     }
 
 

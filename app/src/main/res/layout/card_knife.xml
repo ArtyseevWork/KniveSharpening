@@ -13,20 +13,20 @@
     >
 
     <LinearLayout
-        android:id="@+id/ll_knive_card_border"
+        android:id="@+id/ll_knife_card_border"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:orientation="horizontal"
         android:background="@drawable/ic_card_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_card_knive_name_fill"
+            android:id="@+id/cl_card_knife_name_fill"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="70">
 
             <TextView
-                android:id="@+id/tv_card_knive_card_name"
+                android:id="@+id/tv_card_knife_card_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -38,13 +38,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_card_knive_angle_fill"
+            android:id="@+id/cl_card_knife_angle_fill"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="30">
 
             <TextView
-                android:id="@+id/tv_card_knive_angle"
+                android:id="@+id/tv_card_knife_angle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"

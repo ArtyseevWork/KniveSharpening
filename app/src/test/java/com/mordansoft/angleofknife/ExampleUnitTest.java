@@ -1,4 +1,4 @@
-package com.example.knifesharpening;
+package com.mordansoft.angleofknife;
 
 import org.junit.Test;
 

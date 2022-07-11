@@ -1,11 +1,11 @@
-package com.example.knifesharpening;
+package com.mordansoft.angleofknife;
 
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.knifesharpening.models.Knive;
+import com.mordansoft.angleofknife.models.Knife;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -45,14 +45,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static void deleteAllTables(SQLiteDatabase db){
         try {
-                db.execSQL("DROP TABLE IF EXISTS '" + "KNIVES" + "'");
+                db.execSQL("DROP TABLE IF EXISTS '" + "KNIFES" + "'");
         } catch (Exception e) {
         }
     }
 
 
     private static void createAllTables(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE KNIVES ("
+        db.execSQL("CREATE TABLE KNIFES ("
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "name TEXT,"
                 + "description TEXT,"
@@ -63,18 +63,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public static void insertConstantsData(SQLiteDatabase db){
-        Knive.insKnive(db, new Knive(0, "cheese knife1", "present from my granny2", 35, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife2", "present from my granny1", 25, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife3", "present from my granny3", 15, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife4", "present from my granny4", 45, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife5", "present from my granny5", 23, 0, 400));
-        Knive.insKnive(db, new Knive(0, "cheese knife6", "present from my granny46", 45, 0, 400));
-        Knive.insKnive(db, new Knive(0, "cheese knife41", "present from my granny2", 35, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife42", "present from my granny1", 25, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife43", "present from my granny3", 15, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife44", "present from my granny4", 45, 0, 100));
-        Knive.insKnive(db, new Knive(0, "cheese knife45", "present from my granny5", 23, 0, 400));
-        Knive.insKnive(db, new Knive(0, "cheese knife46", "present from my granny46", 45, 0, 400));
+        Knife.insKnife(db, new Knife(0, "cheese knife1", "present from my granny2", 35, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife2", "present from my granny1", 25, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife3", "present from my granny3", 15, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife4", "present from my granny4", 45, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife5", "present from my granny5", 23, 0, 400));
+        Knife.insKnife(db, new Knife(0, "cheese knife6", "present from my granny46", 45, 0, 400));
+        Knife.insKnife(db, new Knife(0, "cheese knife41", "present from my granny2", 35, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife42", "present from my granny1", 25, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife43", "present from my granny3", 15, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife44", "present from my granny4", 45, 0, 100));
+        Knife.insKnife(db, new Knife(0, "cheese knife45", "present from my granny5", 23, 0, 400));
+        Knife.insKnife(db, new Knife(0, "cheese knife46", "present from my granny46", 45, 0, 400));
 
     }
 }

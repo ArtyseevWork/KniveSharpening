@@ -1,4 +1,4 @@
-package com.example.knifesharpening.activities;
+package com.mordansoft.angleofknife.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,17 +15,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.knifesharpening.DatabaseHelper;
-import com.example.knifesharpening.R;
-import com.example.knifesharpening.models.Knive;
+import com.mordansoft.angleofknife.DatabaseHelper;
+import com.mordansoft.angleofknife.R;
+import com.mordansoft.angleofknife.models.Knife;
 
 public class AngleActivity extends AppCompatActivity {
     private TextView tvAngleValue;
     private TextView tvAngleValueLevel;
-    private TextView tvAngleKniveName;
-    private TextView tvAngleKniveAngle;
-
-    private View ivAngleLevel;
+    private TextView tvAngleKnifeName;
+    private TextView tvAngleKnifeAngle;
     private SensorManager sensorManager;
     private Sensor sensor;
     private SensorEventListener sensorEventListener;
@@ -34,7 +32,7 @@ public class AngleActivity extends AppCompatActivity {
     private int sensorDegree = 0;
     String line = "__________________";
 
-    private Knive knive;
+    private Knife knife;
 
     @Override
     protected void onResume() {
@@ -53,15 +51,15 @@ public class AngleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_angle);
         Bundle arguments = getIntent().getExtras();
-        long kniveId =arguments.getLong("EXTRA_KNIVE_ID");
-        knive = Knive.getKniveById(this,kniveId);
+        long knifeId =arguments.getLong("EXTRA_KNIFE_ID");
+        knife = Knife.getKnifeById(this,knifeId);
         tvAngleValue = findViewById(R.id.tv_angle_value);
         tvAngleValueLevel = findViewById(R.id.tv_angle_value_level);
         //tvAngleValueLevel.setVisibility(View.INVISIBLE);
-        tvAngleKniveName = findViewById(R.id.tv_angle_knive_name);
-        tvAngleKniveAngle = findViewById(R.id.tv_angle_knive_angle);
-        tvAngleKniveName.setText(knive.getName());
-        tvAngleKniveAngle.setText(String.valueOf(knive.getAngle()));
+        tvAngleKnifeName = findViewById(R.id.tv_angle_knife_name);
+        tvAngleKnifeAngle = findViewById(R.id.tv_angle_knife_angle);
+        tvAngleKnifeName.setText(knife.getName());
+        tvAngleKnifeAngle.setText(String.valueOf(knife.getAngle()));
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager != null) sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sensorEventListener = new SensorEventListener() {
@@ -86,7 +84,7 @@ public class AngleActivity extends AppCompatActivity {
                 tvAngleValue.setRotation(sensorDegree);
 
                 tvAngleValue.setText(line + String.valueOf(displayDegree) + line);
-                if (displayDegree == knive.getAngle()){
+                if (displayDegree == knife.getAngle()){
                     tvAngleValue.setTextColor(Color.RED);
                 } else {
                     tvAngleValue.setTextColor(Color.BLACK);
@@ -119,14 +117,14 @@ public class AngleActivity extends AppCompatActivity {
     }
 
 
-    public void saveKnive(View view) {
+    public void saveKnife(View view) {
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
-        knive.setLastSharpening(System.currentTimeMillis() / 1000L);
-        Knive.updKnive(db,knive);
+        knife.setLastSharpening(System.currentTimeMillis() / 1000L);
+        Knife.updKnife(db,knife);
         db.close();
-        Intent intent = new Intent(this,KniveActivity.class);
-        intent.putExtra("EXTRA_KNIVE_ID", knive.getId());
+        Intent intent = new Intent(this,KnifeActivity.class);
+        intent.putExtra("EXTRA_KNIFE_ID", knife.getId());
         startActivity(intent);
     }
 }
