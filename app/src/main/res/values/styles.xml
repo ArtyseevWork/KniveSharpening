@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="general_text_style">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonColor" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">3sp</item>
+        <item name="android:paddingEnd">3sp</item>
+    </style>
+
+    <style name="Test">
+        <item name="android:text">someTExt</item>
+        <item name="backgroundColor">@color/black</item>
+    </style>
+
+</resources>

@@ -10,14 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mordansoft.angleofknife.models.Knife;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class KnifeAdapter extends RecyclerView.Adapter<KnifeAdapter.ViewHolder> {
 
-    private List<Knife> listKnife;
-    private Context mContext;
+    private final List<Knife> listKnife;
     private Listener listener;
+    private Context mContext;
 
     public KnifeAdapter(ArrayList<Knife> listKnife, Context mContext) {
         this.listKnife = listKnife;
@@ -43,8 +44,8 @@ public class KnifeAdapter extends RecyclerView.Adapter<KnifeAdapter.ViewHolder> 
         Knife knife = listKnife.get(position);
         CardView cardView = viewHolder.cardView;
         viewHolder.tv_name.setText(String.valueOf        (knife.getName()));
-        viewHolder.tv_angle.setText(String.valueOf       (knife.getAngle()));
-
+        DecimalFormat dF = new DecimalFormat( "#" );
+        viewHolder.tv_angle.setText(dF.format(knife.getAngle()));
         cardView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onClick(knife.getId());
@@ -64,9 +65,9 @@ public class KnifeAdapter extends RecyclerView.Adapter<KnifeAdapter.ViewHolder> 
 
         public ViewHolder(CardView v){
             super(v);
-            cardView       = v;
-            tv_name         = v.findViewById(R.id.tv_card_knife_card_name);
-            tv_angle        = v.findViewById(R.id.tv_card_knife_angle);
+            cardView = v;
+            tv_name  = v.findViewById(R.id.tv_card_knife_card_name);
+            tv_angle = v.findViewById(R.id.tv_card_knife_angle);
         }
     }
 

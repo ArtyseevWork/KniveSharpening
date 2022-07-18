@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_main_bakcground"
+    android:background="@drawable/ic_main_background"
     tools:context=".activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_main_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="24sp"
+            style="@style/general_text_style"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_main_body"
@@ -40,23 +55,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_main_bottom"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/iv_main_btn_add"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/add"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:contentDescription="@string/activity_knife_add"
             android:onClick="addKnife"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_img_plus" />
+            app:srcCompat="@drawable/ic_add_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

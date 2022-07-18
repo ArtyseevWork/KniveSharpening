@@ -4,49 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.KnifeActivity">
+    android:background="@drawable/ic_main_background"
+    tools:context=".activities.KnifeActivity"
+    >
 
-    <LinearLayout
-        android:id="@+id/ll_knife_top"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_knife_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btn_knife_previous_knife"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_knife_previous"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_arrow"
+            android:foregroundGravity="center"
             android:onClick="previousKnife"
-            android:text="@string/previous" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
-            android:id="@+id/btn_knife_next_knife"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_knife_next"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_arrow"
+            android:foregroundGravity="center"
             android:onClick="nextKnife"
-            android:text="@string/next" />
-    </LinearLayout>
+            android:rotationY="180"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_knife_title"
+            style="@style/general_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_knife_your_knife"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cl_knife_next"
+            app:layout_constraintStart_toEndOf="@+id/cl_knife_previous"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/cl_knife_body"
         android:layout_width="match_parent" android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/cl_knife_bottom"
-        app:layout_constraintTop_toBottomOf="@+id/ll_knife_top"
+        app:layout_constraintTop_toBottomOf="@+id/cl_knife_top"
         app:layout_constraintVertical_bias="0.0" tools:layout_editor_absoluteX="0dp">
 
         <TextView android:id="@+id/tv_knife_name_title" android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_marginEnd="35dp"
-            android:text="@string/name" app:layout_constraintBottom_toBottomOf="@+id/et_knife_name"
+            android:text="@string/activity_knife_name" app:layout_constraintBottom_toBottomOf="@+id/et_knife_name"
             app:layout_constraintEnd_toStartOf="@+id/et_knife_name"
-            app:layout_constraintTop_toTopOf="@+id/et_knife_name" />
+            app:layout_constraintTop_toTopOf="@+id/et_knife_name"
+            style="@style/general_text_style"/>
 
         <EditText
             android:id="@+id/et_knife_name"
@@ -60,10 +84,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView android:id="@+id/tv_knife_angle_title" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="@string/angel"
+            android:layout_height="wrap_content" android:text="@string/activity_knife_angel"
             app:layout_constraintBottom_toBottomOf="@+id/et_knife_angle"
             app:layout_constraintEnd_toEndOf="@+id/tv_knife_name_title"
-            app:layout_constraintTop_toTopOf="@+id/et_knife_angle" />
+            app:layout_constraintTop_toTopOf="@+id/et_knife_angle"
+            style="@style/general_text_style"/>
 
         <EditText android:id="@+id/et_knife_angle" android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_marginTop="25dp" android:ems="10"
@@ -71,10 +96,11 @@
             app:layout_constraintTop_toBottomOf="@+id/et_knife_name" />
 
         <TextView android:id="@+id/tv_knife_date_title" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="@string/date"
+            android:layout_height="wrap_content" android:text="@string/activity_knife_date"
             app:layout_constraintBottom_toBottomOf="@+id/et_knife_date"
             app:layout_constraintEnd_toEndOf="@+id/tv_knife_angle_title"
-            app:layout_constraintTop_toTopOf="@+id/et_knife_date" />
+            app:layout_constraintTop_toTopOf="@+id/et_knife_date"
+            style="@style/general_text_style"/>
 
         <EditText android:id="@+id/et_knife_date" android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_marginTop="25dp" android:ems="10"
@@ -82,10 +108,11 @@
             app:layout_constraintTop_toBottomOf="@+id/et_knife_angle" />
 
         <TextView android:id="@+id/tv_knife_description_title" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="@string/description"
+            android:layout_height="wrap_content" android:text="@string/activity_knife_description"
             app:layout_constraintBottom_toBottomOf="@+id/et_knife_description"
             app:layout_constraintEnd_toEndOf="@+id/tv_knife_name_title"
-            app:layout_constraintTop_toTopOf="@+id/et_knife_description" />
+            app:layout_constraintTop_toTopOf="@+id/et_knife_description"
+            style="@style/general_text_style"/>
 
         <EditText android:id="@+id/et_knife_description" android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_marginTop="25dp" android:ems="10"
@@ -106,10 +133,12 @@
             android:id="@+id/btn_knive_add_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
             android:onClick="addEditKnife"
-            android:text="@string/save"
+            android:text="@string/activity_knife_save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_knive_sharpen"
             app:layout_constraintHorizontal_bias="0.5"
@@ -120,10 +149,12 @@
             android:id="@+id/btn_knive_sharpen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
             android:onClick="sharpenKnife"
-            android:text="@string/sharpen"
+            android:text="@string/activity_knife_sharpen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_knive_delete"
             app:layout_constraintHorizontal_bias="0.5"
@@ -134,10 +165,12 @@
             android:id="@+id/btn_knive_delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
             android:onClick="deleteKnife"
-            android:text="@string/delete"
+            android:text="@string/activity_knife_delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

@@ -1,36 +1,51 @@
 <resources>
-    <!-- general_start -->
+    <!--start general -->
     <string name="app_name">Angle of Knife</string>
-
     <string name="sample_text">Предпросмотр</string>
-    <!-- general_end   -->
+    <!--end general  -->
 
-    <!-- activity_main start -->
+    <!--start activity_main  -->
+    <string name="activity_main_title">Ваши ножи:</string>
     <string name="activity_main_exit_message">Нажмите ещё раз, для выхода.</string>
+    <!--end activity_main   -->
 
-    <!-- activity main end   -->
+    <!-- start activity_knife  -->
+    <string name="activity_knife_next">Следующий</string>
+    <string name="activity_knife_previous">Предыдущий</string>
+    <string name="activity_knife_your_knife">ВАШ НОЖ:</string>
+    <string name="activity_knife_name">Имя</string>
+    <string name="activity_knife_date">Дата</string>
+    <string name="activity_knife_description">Примечание</string>
+    <string name="activity_knife_status">Статус</string>
+    <string name="activity_knife_angel">Угол</string>
+    <string name="activity_knife_add">Добавить</string>
+    <string name="activity_knife_edit">Изменить</string>
+    <string name="activity_knife_delete">Удалить</string>
+    <string name="activity_knife_save">Сохранить</string>
+    <string name="activity_knife_sharpen">Наточить</string>
+    <string name="activity_knife_date_format">dd-MM-yyyy</string>
+    <string name="activity_knife_error_wrong_date">Неверный формат даты</string>
+    <string name="activity_knife_error_wrong_angle">Угол может быть от 1 до 90</string>
+    <string name="activity_knife_delete_message">Вы уверены, что хотите удалить этот нож?</string>
+    <string name="activity_knife_yes">Да</string>
+    <string name="activity_knife_no">Нет</string>
+    <string name="activity_knife_delete_complete_message">Данные удалены</string>
+    <!-- end activity knife    -->
 
-    <!-- activity_knife start -->
-    <string name="next">Следующий</string>
-    <string name="previous">Предыдущий</string>
-    <string name="name">Имя</string>
-    <string name="date">Дата</string>
-    <string name="description">Примечание</string>
-    <string name="status">Статус</string>
-    <string name="angel">Угол</string>
-    <string name="add">Добавить</string>
-    <string name="edit">Изменить</string>
-    <string name="delete">Удалить</string>
-    <string name="save">Сохранить</string>
-    <string name="sharpen">Наточить</string>
-    <string name="sharpen.2">Наточить2</string>
-    <!-- activity knife end   -->
+    <!-- start activity_angle  -->
+    <string name="activity_angle_level">Уровень</string>
+    <string name="activity_angle_done">Готово</string>
+    <string name="activity_angle_line">__________________</string>
+    <string name="activity_angle_horizontal_level">Горизонт: %1$s </string>
+    <!-- end activity_angle    -->
 
-    <!-- activity_angle start -->
-    <string name="level">Уровень</string>
-    <string name="done">Готово</string>
-    <!-- activity_angle end   -->
-
+    <!-- start stock_data -->
+    <string name="stock_data_knife_name">Новый нож</string>
+    <string name="demo_data_knife_name_1">Карманный нож</string>
+    <string name="demo_data_knife_name_2">Поварской нож</string>
+    <string name="demo_data_knife_name_3">Нож для мяса</string>
+    <string name="demo_data_knife_description">Демо-запись</string>
+    <!-- end stock_data    -->
 
 
 

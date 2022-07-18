@@ -13,10 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KnifeSharpening"
         tools:targetApi="31">
-        <activity
-            android:name="com.mordansoft.angleofknife.activities.AngleActivity"
-            android:screenOrientation="landscape"
-            android:exported="false" />
+
         <activity
             android:name="com.mordansoft.angleofknife.activities.MainActivity"
             android:screenOrientation="portrait"
@@ -27,9 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.mordansoft.angleofknife.activities.KnifeActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.mordansoft.angleofknife.activities.AngleActivity"
+            android:screenOrientation="landscape"
+            android:exported="false" />
     </application>
 
 </manifest>

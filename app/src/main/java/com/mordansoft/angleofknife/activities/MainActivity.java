@@ -1,37 +1,25 @@
 package com.mordansoft.angleofknife.activities;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.mordansoft.angleofknife.DatabaseHelper;
 import com.mordansoft.angleofknife.models.Knife;
 import com.mordansoft.angleofknife.KnifeAdapter;
 import com.mordansoft.angleofknife.R;
 
 
 public class MainActivity extends AppCompatActivity {
-    private SQLiteOpenHelper databaseHelper;
-    private SQLiteDatabase db;
     private static long back_pressed;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        databaseHelper = new DatabaseHelper(this);
-        db = databaseHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createRecyclerView(R.id.rv_main);
-
     }
 
     public void createRecyclerView(int view){
@@ -40,23 +28,23 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(view);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        KnifeAdapter adapter = new KnifeAdapter(Knife.getActiveKnifesFromDatabase(MainActivity.this), this);
+        KnifeAdapter adapter = new KnifeAdapter(Knife.getActiveKnivesFromDatabase(this), this);
         recyclerView.setAdapter(adapter);
         adapter.setListener(knifeId -> {
             Intent intent = new Intent(MainActivity.this, KnifeActivity.class);
-            intent.putExtra("EXTRA_KNIFE_ID", knifeId);
+            intent.putExtra(Knife.EXTRA_ID, knifeId);
             startActivity(intent);
         });
     }
 
     public void addKnife(View view) {
         Intent intent = new Intent(MainActivity.this, KnifeActivity.class);
-        intent.putExtra("EXTRA_KNIFE_ID", 0);
+        intent.putExtra(Knife.EXTRA_ID, 0);
         startActivity(intent);
     }
 
-    /********** Exit from app **********/
-    public void goBack() {
+    @Override
+    public void onBackPressed() {   //exit from app
         if (back_pressed + 2000 > System.currentTimeMillis()) {
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
@@ -68,11 +56,4 @@ public class MainActivity extends AppCompatActivity {
             back_pressed = System.currentTimeMillis();
         }
     }
-
-    @Override
-    public void onBackPressed() {
-        goBack();
-    }
-/******** ! Exit from app **********/
-
 }

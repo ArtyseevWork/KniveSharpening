@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/drawable/ic_add_btn.xml" value="0.136" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/drawable/ic_arrow_left.xml" value="0.132" />
         <entry key="..\:/Projects/Knifesharpening/app/src/main/res/drawable/ic_rectangle_bakcground.xml" value="0.116" />
-        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_angle.xml" value="0.22435897435897437" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_angle.xml" value="0.2086956590966153" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_knife.xml" value="0.2563256325632563" />
         <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_knive.xml" value="0.4173913181932306" />
         <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_main.xml" value="0.2754782700075322" />
         <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/activity_profits.xml" value="0.209375" />
+        <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/card_knife.xml" value="0.2754782700075322" />
         <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/card_knive.xml" value="0.4173913181932306" />
         <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/ic_card_background.xml" value="0.1046875" />
         <entry key="..\:/Projects/Knifesharpening/app/src/main/res/layout/knive_card.xml" value="0.2754782700075322" />
