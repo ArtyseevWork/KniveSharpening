@@ -23,6 +23,7 @@ public class KnifeActivity extends AppCompatActivity {
     private EditText etKnifeAngle;
     private EditText etKnifeDate;
     private EditText etKnifeDescription;
+    private View btnKnifeSharpen, btnKnifeDelete;
     SimpleDateFormat dateFormat;
 
     java.util.Date normalTime;
@@ -37,6 +38,10 @@ public class KnifeActivity extends AppCompatActivity {
         if ( knifeId !=0 ){
             knife = Knife.getKnifeById(this, knifeId);
         } else {
+            btnKnifeSharpen = findViewById(R.id.btn_knive_sharpen);
+            btnKnifeDelete = findViewById(R.id.btn_knive_delete);
+            btnKnifeSharpen.setVisibility(View.GONE);
+            btnKnifeDelete.setVisibility(View.GONE);
             knife = Knife.getNewKnife(this);
         }
 
@@ -112,19 +117,20 @@ public class KnifeActivity extends AppCompatActivity {
 
         if (knife.getId() != 0) {
             Knife.updKnife(view.getContext(), knife);
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         } else {
-            Knife.insKnife(view.getContext(), knife);
+            long newKnifeId = Knife.insKnife(view.getContext(), knife);
+            Intent intent = new Intent(this, KnifeActivity.class);
+            intent.putExtra(Knife.EXTRA_ID, newKnifeId);
+            startActivity(intent);
         }
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     public void sharpenKnife(View view) {
         Intent intent = new Intent(KnifeActivity.this, AngleActivity.class);
         intent.putExtra(Knife.EXTRA_ID, knife.getId());
         startActivity(intent);
-
     }
 
     public void deleteKnife(View view) {

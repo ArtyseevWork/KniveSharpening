@@ -47,6 +47,7 @@ public class AngleActivity extends AppCompatActivity {
         line = this.getString(R.string.activity_angle_line);
         Bundle arguments = getIntent().getExtras();
         long knifeId =arguments.getLong(Knife.EXTRA_ID);
+
         knife = Knife.getKnifeById(this,knifeId);
         tvAngleValue = findViewById(R.id.tv_angle_value);
         tvAngleValueLevel = findViewById(R.id.tv_angle_value_level);
