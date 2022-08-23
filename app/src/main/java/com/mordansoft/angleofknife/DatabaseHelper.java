@@ -12,7 +12,7 @@ import com.mordansoft.angleofknife.models.Status;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String dbName = "db_angle_of_knife";
-    public static final int ver = 1;
+    public static final int ver = 2;
     public static final String TBL_KNIVES = "KNIVES";
 
 
@@ -46,6 +46,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             }
         }
+        if (oldVer == 1) { // update database
+                db.execSQL("alter table KNIVES add column double_side_sharpening INTEGER DEFAULT 1");
+        }
     }
 
     public static void deleteAllTables(SQLiteDatabase db){
@@ -63,17 +66,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "description TEXT,"
                 + "angle NUMERIC,"
                 + "status INTEGER,"
-                + "last_sharpening NUMERIC);"
+                + "last_sharpening NUMERIC,"
+                + "double_side_sharpening INTEGER)"
         );
     }
 
     public static void insertConstantsData(SQLiteDatabase db){
-        insKnife(db, new Knife(0, "Карманный нож",  "Демо запись",  35, 1657553800,  Status.STATUS_NEW));
-        insKnife(db, new Knife(0, "Поварской нож",  "Демо запись",  30, 1643320800,  Status.STATUS_NEW));
-        insKnife(db, new Knife(0, "Нож для мяса",   "Демо запись",  35, 1657080800,  Status.STATUS_NEW));
-        insKnife(db, new Knife(0, "Нож для овощей", "Демо запись",  20, 1657080800,  Status.STATUS_NEW));
+        insKnife(db, new Knife(0, "Knife 1",   "Demo record",  35, 1657553800,  Status.STATUS_NEW,true));
+        insKnife(db, new Knife(0, "Knife 2",   "Demo record",  30, 1643320800,  Status.STATUS_NEW,true));
+        insKnife(db, new Knife(0, "Knife 3",   "Demo record",  35, 1657080800,  Status.STATUS_NEW,true));
+        insKnife(db, new Knife(0, "Knife 4",   "Demo record",  20, 1657080800,  Status.STATUS_NEW,false));
 
-        /* insKnife(db, new Knife(0, "cheese knife1",  "present from my granny2",  35, 0,  Status.statusNew));
+        /*
+        insKnife(db, new Knife(0, "cheese knife1",  "present from my granny2",  35, 0,  Status.statusNew));
         insKnife(db, new Knife(0, "cheese knife2",  "present from my granny1",  25, 0,  Status.statusNew));
         insKnife(db, new Knife(0, "cheese knife3",  "present from my granny3",  15, 0,  Status.statusNew));
         insKnife(db, new Knife(0, "cheese knife4",  "present from my granny4",  45, 0,  Status.statusNew));
@@ -94,6 +99,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("angle", knife.getAngle());
         contentValues.put("last_sharpening", knife.getLastSharpening());
         contentValues.put("status", knife.getStatus());
+        contentValues.put("double_side_sharpening", knife.isDoubleSideSharp());
+
         return ( db.insert(TBL_KNIVES,null,contentValues));
     }
 

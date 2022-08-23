@@ -22,15 +22,17 @@ public class Knife {
     private long lastSharpening;
     private int status;
     public static final String EXTRA_ID  = "EXTRA_KNIFE_ID";
+    private boolean doubleSideSharp;
 
     /****** Constructors getters setters *******/ //todo refactor
-    public Knife(long id, String name, String description, float angle, long lastSharpening, int status) {
+    public Knife(long id, String name, String description, float angle, long lastSharpening, int status, boolean doubleSideSharp) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.angle = angle;
         this.lastSharpening = lastSharpening;
         this.status = status;
+        this.doubleSideSharp = doubleSideSharp;
     }
     public long getId() {
         return this.id;
@@ -65,6 +67,8 @@ public class Knife {
     public void setStatus(int status) {
         this.status = status;
     }
+    public boolean isDoubleSideSharp() {return doubleSideSharp;}
+    public void setDoubleSideSharp(boolean doubleSideSharp) {this.doubleSideSharp = doubleSideSharp;}
     /***** !Constructors getters setters *******/
 
 
@@ -80,7 +84,8 @@ public class Knife {
                                                                 "description",//1
                                                                 "angle",//2
                                                                 "last_sharpening",//3
-                                                                "status"},//4
+                                                                "status",//4
+                                                                "double_side_sharpening"},//5
                     "_id = ?", new String[] {String.valueOf(id)},null,null,null);
 
             if (cursor.moveToFirst()){
@@ -90,7 +95,8 @@ public class Knife {
                         cursor.getString(1),
                         cursor.getFloat(2),
                         cursor.getLong(3),
-                        cursor.getInt(4));
+                        cursor.getInt(4),
+                        intToBool(cursor.getInt(5)));
             }
             cursor.close();
             db.close();
@@ -107,7 +113,8 @@ public class Knife {
         int angle = 35;
         long date = System.currentTimeMillis() / 1000L;
         int status = Status.STATUS_NEW;
-        return new Knife(0,name,description, angle,date , status);
+        boolean doubleSideSharp = true;
+        return new Knife(0, name, description, angle, date, status, doubleSideSharp);
     }
 
     public static ArrayList<Knife> getActiveKnivesFromDatabase(Context context){
@@ -120,11 +127,12 @@ public class Knife {
             databaseHelper = new DatabaseHelper(context);
             db = databaseHelper.getReadableDatabase();
             Cursor cursor = db.query(DatabaseHelper.TBL_KNIVES, new String[]{"_id",
-                            "name",
-                            "description",
-                            "angle",
-                            "last_sharpening",
-                            "status"},
+                            "name",                     //1
+                            "description",              //2
+                            "angle",                    //3
+                            "last_sharpening",          //4
+                            "status",                   //5
+                            "double_side_sharpening"},     //6
                     query, null,null,null,"_id");
 
             while (cursor.moveToNext()){
@@ -134,7 +142,8 @@ public class Knife {
                 float   angle           = cursor.getFloat(3);
                 long    lastSharpening  = cursor.getLong(4);
                 int     status          = cursor.getInt(5);
-                listKnives.add(new Knife(id,name, description, angle, lastSharpening, status));
+                boolean doubleSideSharp    = intToBool(cursor.getInt(6));
+                listKnives.add(new Knife(id,name, description, angle, lastSharpening, status, doubleSideSharp));
             }
             cursor.close();
             db.close();
@@ -155,6 +164,7 @@ public class Knife {
         contentValues.put("angle", knife.angle);
         contentValues.put("last_sharpening", knife.lastSharpening);
         contentValues.put("status", knife.status);
+        contentValues.put("double_side_sharpening", knife.isDoubleSideSharp());
         long result = db.insert(DatabaseHelper.TBL_KNIVES,null,contentValues);
         db.close();
         return (result);
@@ -164,11 +174,13 @@ public class Knife {
         DatabaseHelper databaseHelper = new DatabaseHelper(context);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("name", knife.name);
-        contentValues.put("description", knife.description);
-        contentValues.put("angle", knife.angle);
-        contentValues.put("last_sharpening", knife.lastSharpening);
-        contentValues.put("status", knife.status);
+        contentValues.put("name", knife.getName());
+        contentValues.put("description", knife.getDescription());
+        contentValues.put("angle", knife.getAngle());
+        contentValues.put("last_sharpening", knife.getLastSharpening());
+        contentValues.put("status", knife.getStatus());
+        contentValues.put("double_side_sharpening", knife.isDoubleSideSharp());
+
         db.update(DatabaseHelper.TBL_KNIVES,contentValues, "_id = ?",new String[] {String.valueOf(knife.id)});
         db.close();
     }
@@ -202,6 +214,14 @@ public class Knife {
         }
         db.close();
         return available;
+    }
+
+    public static boolean intToBool(int value){
+        boolean result = false;
+        if (value>0){
+            result = true;
+        }
+        return result;
     }
 
 

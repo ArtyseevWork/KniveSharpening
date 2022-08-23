@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.mordansoft.angleofknife.R;
 import com.mordansoft.angleofknife.models.Knife;
+import android.media.SoundPool;
+
+
 
 public class AngleActivity extends AppCompatActivity {
     private TextView tvAngleValue;
@@ -22,11 +25,18 @@ public class AngleActivity extends AppCompatActivity {
     private SensorManager sensorManager;
     private Sensor sensor;
     private SensorEventListener sensorEventListener;
-    private int levelDegree = 0;
-    private int displayDegree = 0;
-    private int sensorDegree = 0;
+    private float levelDegree = 0;
+    private double displayDegree = 0;
+    private float sensorDegree = 0;
     String line;
     private Knife knife;
+    private SoundPool soundPool;
+    private int melodyId;
+    private boolean playFlag = true;
+    private boolean halfOfKnife = true;
+    private float angleValue;
+    private String angleValueTitle;
+
 
     @Override
     protected void onResume() {
@@ -47,7 +57,6 @@ public class AngleActivity extends AppCompatActivity {
         line = this.getString(R.string.activity_angle_line);
         Bundle arguments = getIntent().getExtras();
         long knifeId =arguments.getLong(Knife.EXTRA_ID);
-
         knife = Knife.getKnifeById(this,knifeId);
         tvAngleValue = findViewById(R.id.tv_angle_value);
         tvAngleValueLevel = findViewById(R.id.tv_angle_value_level);
@@ -55,9 +64,24 @@ public class AngleActivity extends AppCompatActivity {
         TextView tvAngleKnifeName = findViewById(R.id.tv_angle_knife_name);
         TextView tvAngleKnifeAngle = findViewById(R.id.tv_angle_knife_angle);
         tvAngleKnifeName.setText(knife.getName());
-        tvAngleKnifeAngle.setText(String.valueOf(knife.getAngle()));
+        angleValue = knife.getAngle();
+        angleValueTitle = String.valueOf(angleValue);
+        halfOfKnife = knife.isDoubleSideSharp();
+        if (halfOfKnife){
+            angleValue = angleValue/2;
+            angleValueTitle += " / 2 = " + angleValue;
+
+        }
+        tvAngleKnifeAngle.setText(angleValueTitle);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        if (sensorManager != null) sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        if (sensorManager != null) {
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        }
+        soundPool = new SoundPool.Builder()
+                .setMaxStreams(1)
+                .build();
+        melodyId = soundPool.load(this, R.raw.beep, 1);
+
         sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -73,14 +97,24 @@ public class AngleActivity extends AppCompatActivity {
                 for (int i  = 0; i < 3; i++){
                     orientations[i] = (float)(Math.toDegrees(orientations[i]));
                 }
-                sensorDegree = (int) - orientations[2] - 90;
+                sensorDegree = - orientations[2] - 90;
+
+                double scale = Math.pow(10, 1);
                 displayDegree = Math.abs((sensorDegree - levelDegree)% 90);
+                displayDegree = Math.ceil(displayDegree * scale) / scale;
+
                 tvAngleValue.setRotation(sensorDegree);
 
                 tvAngleValue.setText(line + displayDegree + line);
-                if (displayDegree == knife.getAngle()){
+                if (displayDegree == angleValue){
                     tvAngleValue.setTextColor(Color.RED);
+                    if(playFlag) {
+                        float volume = 0.1f;
+                        soundPool.play(melodyId, volume, volume, 1, 0, 1);
+                        playFlag = false;
+                    }
                 } else {
+                    playFlag = true;
                     tvAngleValue.setTextColor(Color.BLACK);
                 }
             }

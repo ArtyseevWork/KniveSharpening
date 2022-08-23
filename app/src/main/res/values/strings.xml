@@ -1,50 +1,54 @@
 <resources>
     <!--start general -->
     <string name="app_name">Angle of Knife</string>
-    <string name="sample_text">Предпросмотр</string>
+    <string name="sample_text">Sample_text</string>
     <!--end general  -->
 
     <!--start activity_main  -->
-    <string name="activity_main_title">Ваши ножи:</string>
-    <string name="activity_main_exit_message">Нажмите ещё раз, для выхода.</string>
+    <string name="activity_main_title">Your knives:</string>
+    <string name="activity_main_exit_message">Press again to exit.</string>
     <!--end activity_main   -->
 
     <!-- start activity_knife  -->
-    <string name="activity_knife_next">Следующий</string>
-    <string name="activity_knife_previous">Предыдущий</string>
-    <string name="activity_knife_your_knife">ВАШ НОЖ:</string>
-    <string name="activity_knife_name">Имя</string>
-    <string name="activity_knife_date">Дата</string>
-    <string name="activity_knife_description">Примечание</string>
-    <string name="activity_knife_status">Статус</string>
-    <string name="activity_knife_angel">Угол</string>
-    <string name="activity_knife_add">Добавить</string>
-    <string name="activity_knife_edit">Изменить</string>
-    <string name="activity_knife_delete">Удалить</string>
-    <string name="activity_knife_save">Сохранить</string>
-    <string name="activity_knife_sharpen">Наточить</string>
+    <string name="activity_knife_next">Next knife</string>
+    <string name="activity_knife_previous">Previous knife</string>
+    <string name="activity_knife_your_knife">Your knife:</string>
+    <string name="activity_knife_name">Name</string>
+    <string name="activity_knife_date">Date</string>
+    <string name="activity_knife_description">Description</string>
+    <string name="activity_knife_status">Status</string>
+    <string name="activity_knife_angel">Angle</string>
+    <string name="activity_knife_add">Add</string>
+    <string name="activity_knife_edit">Edit</string>
+    <string name="activity_knife_delete">Remove</string>
+    <string name="activity_knife_save">Save</string>
+    <string name="activity_knife_sharpen">Sharpen</string>
     <string name="activity_knife_date_format">dd-MM-yyyy</string>
-    <string name="activity_knife_error_wrong_date">Неверный формат даты</string>
-    <string name="activity_knife_error_wrong_angle">Угол может быть от 1 до 90</string>
-    <string name="activity_knife_delete_message">Вы уверены, что хотите удалить этот нож?</string>
-    <string name="activity_knife_yes">Да</string>
-    <string name="activity_knife_no">Нет</string>
-    <string name="activity_knife_delete_complete_message">Данные удалены</string>
+    <string name="activity_knife_error_wrong_date">Invalid date format</string>
+    <string name="activity_knife_error_wrong_angle">Angle can be from 1 to 90</string>
+    <string name="activity_knife_delete_message">Are you sure you want to remove this knife?</string>
+    <string name="activity_knife_yes">Yes</string>
+    <string name="activity_knife_no">No</string>
+    <string name="activity_knife_delete_complete_message">Data deleted</string>
+    <string name="activity_knife_one_sided_sharpening">One-sided</string>
+    <string name="activity_knife_double_sided_sharpening">Double sided</string>
+    <string name="activity_knife_sharpening_type">Type</string>
+
     <!-- end activity knife    -->
 
     <!-- start activity_angle  -->
-    <string name="activity_angle_level">Уровень</string>
-    <string name="activity_angle_done">Готово</string>
+    <string name="activity_angle_level">Level</string>
+    <string name="activity_angle_done">Done</string>
     <string name="activity_angle_line">__________________</string>
-    <string name="activity_angle_horizontal_level">Горизонт: %1$s </string>
+    <string name="activity_angle_horizontal_level">Horizonte: %1$s </string>
     <!-- end activity_angle    -->
 
     <!-- start stock_data -->
-    <string name="stock_data_knife_name">Новый нож</string>
-    <string name="demo_data_knife_name_1">Карманный нож</string>
-    <string name="demo_data_knife_name_2">Поварской нож</string>
-    <string name="demo_data_knife_name_3">Нож для мяса</string>
-    <string name="demo_data_knife_description">Демо-запись</string>
+    <string name="stock_data_knife_name">New knife</string>
+    <string name="demo_data_knife_name_1">Pocket knife</string>
+    <string name="demo_data_knife_name_2">Chef\'s knife</string>
+    <string name="demo_data_knife_name_3">Meat knife</string>
+    <string name="demo_data_knife_description">Demo Recording</string>
     <!-- end stock_data    -->
 
 

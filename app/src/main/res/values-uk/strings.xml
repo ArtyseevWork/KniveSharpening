@@ -1,0 +1,59 @@
+<resources>
+    <!--start general -->
+    <string name="app_name">Angle of Knife</string>
+    <string name="sample_text">Зразок</string>
+    <!--end general  -->
+
+    <!--start activity_main  -->
+    <string name="activity_main_title">Ваші  ножі:</string>
+    <string name="activity_main_exit_message">Натисніть ще раз, для виходу.</string>
+    <!--end activity_main   -->
+
+    <!-- start activity_knife  -->
+    <string name="activity_knife_next">Наступний ніж</string>
+    <string name="activity_knife_previous">Попередній ніж</string>
+    <string name="activity_knife_your_knife">ВАШ НІЖ:</string>
+    <string name="activity_knife_name">Ім\'я</string>
+    <string name="activity_knife_date">Дата</string>
+    <string name="activity_knife_description">Примітка</string>
+    <string name="activity_knife_status">Статус</string>
+    <string name="activity_knife_angel">Вугол</string>
+    <string name="activity_knife_add">Додати</string>
+    <string name="activity_knife_edit">Змінити</string>
+    <string name="activity_knife_delete">Видалити</string>
+    <string name="activity_knife_save">Зберігти</string>
+    <string name="activity_knife_sharpen">Заточити</string>
+    <string name="activity_knife_date_format">dd-MM-yyyy</string>
+    <string name="activity_knife_error_wrong_date">Невірный формат дати</string>
+    <string name="activity_knife_error_wrong_angle">Вугол може бути від 1 до 90</string>
+    <string name="activity_knife_delete_message">Ви впевнені, що хочете видалити цей ніж?</string>
+    <string name="activity_knife_yes">Так</string>
+    <string name="activity_knife_no">Ні</string>
+    <string name="activity_knife_delete_complete_message">Дані видалені</string>
+    <string name="activity_knife_one_sided_sharpening">Односторонній</string>
+    <string name="activity_knife_double_sided_sharpening">Двосторонній</string>
+    <string name="activity_knife_sharpening_type">Тип</string>
+
+    <!-- end activity knife    -->
+
+    <!-- start activity_angle  -->
+    <string name="activity_angle_level">Рівень</string>
+    <string name="activity_angle_done">Готово</string>
+    <string name="activity_angle_line">__________________</string>
+    <string name="activity_angle_horizontal_level">Горизонт: %1$s </string>
+    <!-- end activity_angle    -->
+
+    <!-- start stock_data -->
+    <string name="stock_data_knife_name">Новый ніж</string>
+    <string name="demo_data_knife_name_1">Карманний ніж</string>
+    <string name="demo_data_knife_name_2">Поварски ніж</string>
+    <string name="demo_data_knife_name_3">Ніж для м\'яса</string>
+    <string name="demo_data_knife_description">Демо-запис</string>
+    <!-- end stock_data    -->
+
+
+
+
+
+
+</resources>

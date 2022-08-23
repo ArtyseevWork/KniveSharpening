@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 import com.mordansoft.angleofknife.R;
 import com.mordansoft.angleofknife.models.Knife;
@@ -24,6 +26,7 @@ public class KnifeActivity extends AppCompatActivity {
     private EditText etKnifeDate;
     private EditText etKnifeDescription;
     private View btnKnifeSharpen, btnKnifeDelete;
+    private SwitchCompat swDoubleHalfSharp;
     SimpleDateFormat dateFormat;
 
     java.util.Date normalTime;
@@ -38,8 +41,8 @@ public class KnifeActivity extends AppCompatActivity {
         if ( knifeId !=0 ){
             knife = Knife.getKnifeById(this, knifeId);
         } else {
-            btnKnifeSharpen = findViewById(R.id.btn_knive_sharpen);
-            btnKnifeDelete = findViewById(R.id.btn_knive_delete);
+            btnKnifeSharpen = findViewById(R.id.btn_knife_sharpen);
+            btnKnifeDelete = findViewById(R.id.btn_knife_delete);
             btnKnifeSharpen.setVisibility(View.GONE);
             btnKnifeDelete.setVisibility(View.GONE);
             knife = Knife.getNewKnife(this);
@@ -60,6 +63,10 @@ public class KnifeActivity extends AppCompatActivity {
         dateFormat = new SimpleDateFormat(this.getString(R.string.activity_knife_date_format)); //todo
         etKnifeDate.setText(dateFormat.format( normalTime ) );
         etKnifeDescription.setText(knife.getDescription());
+        swDoubleHalfSharp = findViewById(R.id.sw_knife_angle_double_side);
+        swDoubleHalfSharp.setChecked(knife.isDoubleSideSharp());
+
+
     }
 
 
@@ -114,17 +121,17 @@ public class KnifeActivity extends AppCompatActivity {
         knife.setAngle(Integer.parseInt(String.valueOf(etKnifeAngle.getText())));
         knife.setDescription(String.valueOf(etKnifeDescription.getText()));
         knife.setLastSharpening(unixTime);
+        knife.setDoubleSideSharp(swDoubleHalfSharp.isChecked());
 
+        Intent intent = new Intent(this, KnifeActivity.class);
         if (knife.getId() != 0) {
             Knife.updKnife(view.getContext(), knife);
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            intent.putExtra(Knife.EXTRA_ID, knife.getId());
         } else {
             long newKnifeId = Knife.insKnife(view.getContext(), knife);
-            Intent intent = new Intent(this, KnifeActivity.class);
             intent.putExtra(Knife.EXTRA_ID, newKnifeId);
-            startActivity(intent);
         }
+        startActivity(intent);
     }
 
     public void sharpenKnife(View view) {
