@@ -13,6 +13,24 @@
     <string name="menu_nav_feedback">Feedback and support</string>
     <!--end menu_nav   -->
 
+    <!--start activity_feedback  -->
+    <string name="activity_feedback_title">Best regards to you:</string>
+    <string name="activity_feedback_description"> \t Dear user!
+        \n\n\t You have a unique opportunity to participate in the creation of a new application.
+        As you may have noticed, the application currently has only basic functionality (there are
+        no advertisements). While we have a small number of users, the developers have the
+        opportunity to study every wish and, with a very high probability, implement them.
+        \n\t If you want it to be more convenient for you to use the application - leave a review
+        where you write what exactly you would like to improve. If everything suits you, you could
+        just leave a review, we will be very pleased. No review will go unnoticed.
+        \n\n\t And I\'ll just leave it here:
+    </string>
+    <string name="activity_feedback_btn_share">Share the app</string>
+    <string name="activity_feedback_btn_rate">Leave feedback.</string>
+    <string name="activity_feedback_recomend_text">Let me recommended the app:</string>
+    <string name="activity_feedback_recommend_subject" translatable="false">Angle of knife</string>
+    <!--end activity_feedback   -->
+
     <!-- start activity_knife  -->
     <string name="activity_knife_next">Next knife</string>
     <string name="activity_knife_previous">Previous knife</string>
@@ -53,6 +71,7 @@
     <string name="demo_data_knife_name_2">Chef\'s knife</string>
     <string name="demo_data_knife_name_3">Meat knife</string>
     <string name="demo_data_knife_description">Demo Recording</string>
+
     <!-- end stock_data    -->
 
 

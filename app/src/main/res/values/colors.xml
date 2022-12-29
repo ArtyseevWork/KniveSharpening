@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
 
+
+    <color name="text_color">#151515</color>
     <color name="blue">#1aafd0</color>
     <color name="purple">#6a67ce</color>
     <color name="yellow">#ffb900</color>
