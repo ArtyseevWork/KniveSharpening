@@ -9,6 +9,10 @@
     <string name="activity_main_exit_message">Press again to exit.</string>
     <!--end activity_main   -->
 
+    <!--start menu_nav  -->
+    <string name="menu_nav_feedback">Feedback and support</string>
+    <!--end menu_nav   -->
+
     <!-- start activity_knife  -->
     <string name="activity_knife_next">Next knife</string>
     <string name="activity_knife_previous">Previous knife</string>

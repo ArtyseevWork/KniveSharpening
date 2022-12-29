@@ -9,6 +9,10 @@
     <string name="activity_main_exit_message">Натисніть ще раз, для виходу.</string>
     <!--end activity_main   -->
 
+    <!--start menu_nav  -->
+    <string name="menu_nav_feedback">Зворотній зв\'язок</string>
+    <!--end menu_nav   -->
+
     <!-- start activity_knife  -->
     <string name="activity_knife_next">Наступний ніж</string>
     <string name="activity_knife_previous">Попередній ніж</string>

@@ -2,17 +2,23 @@ package com.mordansoft.angleofknife.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
 import com.mordansoft.angleofknife.models.Knife;
 import com.mordansoft.angleofknife.KnifeAdapter;
 import com.mordansoft.angleofknife.R;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+{
     private static long back_pressed;
 
     @Override
@@ -20,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createRecyclerView(R.id.rv_main);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     public void createRecyclerView(int view){
@@ -42,6 +52,25 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(Knife.EXTRA_ID, 0);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) { //buttons of left menu
+        int id = item.getItemId();
+        Intent intent;
+        switch(id){
+
+            case R.id.menuFeedback:
+                intent = new Intent(this, KnifeActivity.class);
+                startActivity(intent);
+                break;
+
+        }
+        DrawerLayout drawer = findViewById(R.id.nav_view);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
 
     @Override
     public void onBackPressed() {   //exit from app

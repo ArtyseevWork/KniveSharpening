@@ -9,6 +9,10 @@
     <string name="activity_main_exit_message">Нажмите ещё раз, для выхода.</string>
     <!--end activity_main   -->
 
+    <!--start menu_nav  -->
+    <string name="menu_nav_feedback">Обратная связь</string>
+    <!--end menu_nav   -->
+
     <!-- start activity_knife  -->
     <string name="activity_knife_next">Следующий нож</string>
     <string name="activity_knife_previous">Предыдущий нож</string>
@@ -49,6 +53,7 @@
     <string name="demo_data_knife_name_2">Поварской нож</string>
     <string name="demo_data_knife_name_3">Нож для мяса</string>
     <string name="demo_data_knife_description">Демо-запись</string>
+
     <!-- end stock_data    -->
 
 
