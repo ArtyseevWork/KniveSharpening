@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -92,6 +90,7 @@ public class KnifeActivity extends AppCompatActivity {
         long unixTime;
         try{    //validate the date of last sharpening
             Date date= dateFormat.parse(String.valueOf(etKnifeDate.getText())); //todo create new func
+            assert date != null;
             unixTime = date.getTime()/1000;
         }catch(ParseException e){
             etKnifeDate.setText(dateFormat.format( normalTime ) );
