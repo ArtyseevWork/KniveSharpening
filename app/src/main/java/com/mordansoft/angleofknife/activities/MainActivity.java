@@ -3,6 +3,7 @@ package com.mordansoft.angleofknife.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createRecyclerView(R.id.rv_main);
+        ImageView menuButton = (ImageView) findViewById(R.id.iv_main_btn_menu);
+        ImageView addKnifeButton = (ImageView) findViewById(R.id.iv_main_btn_add);
+        menuButton.setOnClickListener(openMenu);
+        addKnifeButton.setOnClickListener(addKnife);
+
     }
 
     public void createRecyclerView(int view){
@@ -37,11 +43,27 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void addKnife(View view) {
-        Intent intent = new Intent(MainActivity.this, KnifeActivity.class);
-        intent.putExtra(Knife.EXTRA_ID, 0);
-        startActivity(intent);
-    }
+
+    /******* listeners *********/
+
+    View.OnClickListener addKnife = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, KnifeActivity.class);
+            intent.putExtra(Knife.EXTRA_ID, 0);
+            startActivity(intent);
+        }
+    };
+
+    View.OnClickListener openMenu = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    /***** ! listeners *********/
 
     @Override
     public void onBackPressed() {   //exit from app

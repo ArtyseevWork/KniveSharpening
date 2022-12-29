@@ -9,6 +9,23 @@
     <string name="activity_main_exit_message">Нажмите ещё раз, для выхода.</string>
     <!--end activity_main   -->
 
+    <!--start activity_feedback  -->
+    <string name="activity_feedback_title">С наилучшими пожеланиями:</string>
+    <string name="activity_feedback_description">\t Уважаемый пользователь! \n\n\t У тебя есть
+        уникальная возможность - поучаствовать в создании приложения. Как ты мог заметить -
+        приложение сейчас имеет только базовый функционал (за то никакой рекламы).
+        Пока у нас небольшое количество пользователей, разработчики имеют возможность рассмотреть
+        каждое пожелание, и, с очень большой вероятностью, воплотить его в жизнь.
+        \n\n\t Если ты         хочешь, чтоб именно тебе было удобнее пользоваться приложением -
+        оставь отзыв и напиши, что бы ты хотел улучшить. Если тебя все устраивает, ты мог бы просто
+        оставить отзыв, нам будет очень приятно. Ни один отзыв не останется без внимания.
+        \n\n\t А я просто оставлю это тут:
+
+    </string>
+    <string name="activity_feedback_btn_share">Поделиться приложением</string>
+    <string name="activity_feedback_btn_rate">Оставить отзыв</string>
+    <!--end activity_feedback   -->
+
     <!-- start activity_knife  -->
     <string name="activity_knife_next">Следующий нож</string>
     <string name="activity_knife_previous">Предыдущий нож</string>
@@ -49,6 +66,8 @@
     <string name="demo_data_knife_name_2">Поварской нож</string>
     <string name="demo_data_knife_name_3">Нож для мяса</string>
     <string name="demo_data_knife_description">Демо-запись</string>
+    <string name="menu_nav_feedback">Обратная связ</string>
+    <string name="activity_feedback_recomend_text">Хочу порекомендовать приложение:</string>
     <!-- end stock_data    -->
 
 

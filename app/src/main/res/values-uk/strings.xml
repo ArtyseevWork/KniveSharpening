@@ -9,6 +9,22 @@
     <string name="activity_main_exit_message">Натисніть ще раз, для виходу.</string>
     <!--end activity_main   -->
 
+    <!--start activity_feedback  -->
+    <string name="activity_feedback_title">З найкращими побажаннями:</string>
+    <string name="activity_feedback_description">\tШановний користувач! \n\n\t Ти маєш унікальну
+        нагоду - взяти участь у створенні нового додатку. Як ти міг помітити - додаток зараз має
+        лише базовий функціонал(про те жодної реклами). Поки в нас невелика кількість користувачів,
+        розробники мають можливість вивчити кожне побажання, та, з дуже великою вірогідністю,
+        втілити їх в життя. \n\t Якщо ти бажаєш, щоб саме тобі було зручніше користуватись додатком
+        - залиш відгук, де напиши, що саме хотів би покращити. Якщо тебе все влаштовує, ти міг би
+        просто залишити відгук, нам буде дуже приємно. Жоден відгук не залишиться без уваги.
+        \n\t Все буде Україна!
+        \n\n\t А я просто залишу це тут:
+    </string>
+    <string name="activity_feedback_btn_share">Поділитись додатком</string>
+    <string name="activity_feedback_btn_rate">Залишити відгук</string>
+    <!--end activity_feedback   -->
+
     <!-- start activity_knife  -->
     <string name="activity_knife_next">Наступний ніж</string>
     <string name="activity_knife_previous">Попередній ніж</string>
@@ -24,7 +40,7 @@
     <string name="activity_knife_save">Зберігти</string>
     <string name="activity_knife_sharpen">Заточити</string>
     <string name="activity_knife_date_format">dd-MM-yyyy</string>
-    <string name="activity_knife_error_wrong_date">Невірный формат дати</string>
+    <string name="activity_knife_error_wrong_date">Невірний формат дати</string>
     <string name="activity_knife_error_wrong_angle">Вугол може бути від 1 до 90</string>
     <string name="activity_knife_delete_message">Ви впевнені, що хочете видалити цей ніж?</string>
     <string name="activity_knife_yes">Так</string>
@@ -44,11 +60,13 @@
     <!-- end activity_angle    -->
 
     <!-- start stock_data -->
-    <string name="stock_data_knife_name">Новый ніж</string>
+    <string name="stock_data_knife_name">Новий ніж</string>
     <string name="demo_data_knife_name_1">Карманний ніж</string>
-    <string name="demo_data_knife_name_2">Поварски ніж</string>
+    <string name="demo_data_knife_name_2">Поварський ніж</string>
     <string name="demo_data_knife_name_3">Ніж для м\'яса</string>
     <string name="demo_data_knife_description">Демо-запис</string>
+    <string name="menu_nav_feedback">Зворотній звязок</string>
+    <string name="activity_feedback_recomend_text">Хочу порадити  додаток:</string>
     <!-- end stock_data    -->
 
 
