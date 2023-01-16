@@ -67,11 +67,15 @@
 
     <!-- start stock_data -->
     <string name="stock_data_knife_name">Новий ніж</string>
-    <string name="demo_data_knife_name_1">Карманний ніж</string>
-    <string name="demo_data_knife_name_2">Поварський ніж</string>
-    <string name="demo_data_knife_name_3">Ніж для м\'яса</string>
     <string name="demo_data_knife_description">Демо-запис</string>
-   <!-- end stock_data    -->
+    <string name="demo_data_pocket_knife">Карманний ніж</string>
+    <string name="demo_data_chef_knife">Поварський ніж</string>
+    <string name="demo_data_fish_knife">Ніж для риби</string>
+    <string name="demo_data_fruit_knife">Ніж для овочів</string>
+    <string name="demo_data_scissors">Ножиці</string>
+    <string name="demo_data_meat_knife">Ніж для м\'яса</string>
+    <string name="demo_data_utility_knife">Універсальний ніж</string>
+    <!-- end stock_data    -->
 
 
 

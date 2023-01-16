@@ -12,6 +12,7 @@ import com.mordansoft.angleofknife.DatabaseHelper;
 import com.mordansoft.angleofknife.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class Knife {
@@ -193,6 +194,20 @@ public class Knife {
     public static void delKnife(Context context, Knife knife){
        knife.status = Status.STATUS_DISABLE;
        updKnife(context,knife);
+    }
+
+    public static void insertConstantsData(Context context) {
+        Calendar calendar = Calendar.getInstance();
+
+        long sharpeningTime = calendar.getTimeInMillis();
+
+        insKnife(context, new Knife(0, context.getString(R.string.demo_data_pocket_knife), context.getString(R.string.demo_data_pocket_knife), 35, sharpeningTime, Status.STATUS_NEW, true));
+        insKnife(context, new Knife(0, context.getString(R.string.demo_data_chef_knife),context.getString(R.string.demo_data_pocket_knife), 30, sharpeningTime, Status.STATUS_NEW, true));
+        insKnife(context, new Knife(0, context.getString(R.string.demo_data_meat_knife), context.getString(R.string.demo_data_pocket_knife), 25, sharpeningTime, Status.STATUS_NEW, true));
+        insKnife(context, new Knife(0, context.getString(R.string.demo_data_fish_knife), context.getString(R.string.demo_data_pocket_knife), 20, sharpeningTime, Status.STATUS_NEW, true));
+        insKnife(context, new Knife(0, context.getString(R.string.demo_data_fruit_knife), context.getString(R.string.demo_data_pocket_knife), 15, sharpeningTime, Status.STATUS_NEW, true));
+        insKnife(context, new Knife(0, context.getString(R.string.demo_data_utility_knife), context.getString(R.string.demo_data_pocket_knife), 40, sharpeningTime, Status.STATUS_NEW, true));
+        insKnife(context, new Knife(0, context.getString(R.string.demo_data_scissors), context.getString(R.string.demo_data_pocket_knife), 70, sharpeningTime, Status.STATUS_NEW, false));
     }
 
     public static boolean neighborIsAvailable(Context context, long knifeId, int position){

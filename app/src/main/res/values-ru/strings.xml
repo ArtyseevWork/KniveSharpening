@@ -67,10 +67,14 @@
 
     <!-- start stock_data -->
     <string name="stock_data_knife_name">Новый нож</string>
-    <string name="demo_data_knife_name_1">Карманный нож</string>
-    <string name="demo_data_knife_name_2">Поварской нож</string>
-    <string name="demo_data_knife_name_3">Нож для мяса</string>
     <string name="demo_data_knife_description">Демо-запись</string>
+    <string name="demo_data_pocket_knife">Карманный нож</string>
+    <string name="demo_data_chef_knife">Поварской нож</string>
+    <string name="demo_data_fish_knife">Нож для рыбы</string>
+    <string name="demo_data_fruit_knife">Нож для овощей</string>
+    <string name="demo_data_meat_knife">Нож для мяса</string>
+    <string name="demo_data_utility_knife">Универсальный нож</string>
+    <string name="demo_data_scissors">Ножницы</string>
     <!-- end stock_data    -->
 
 

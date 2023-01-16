@@ -67,11 +67,14 @@
 
     <!-- start stock_data -->
     <string name="stock_data_knife_name">New knife</string>
-    <string name="demo_data_knife_name_1">Pocket knife</string>
-    <string name="demo_data_knife_name_2">Chef\'s knife</string>
-    <string name="demo_data_knife_name_3">Meat knife</string>
-    <string name="demo_data_knife_description">Demo Recording</string>
-
+    <string name="demo_data_pocket_knife">Pocket knife</string>
+    <string name="demo_data_chef_knife">Chef\'s knife</string>
+    <string name="demo_data_meat_knife">Meat knife</string>
+    <string name="demo_data_fish_knife">Fish knife</string>
+    <string name="demo_data_fruit_knife">Fruit &amp; Vegetable Knife</string>
+    <string name="demo_data_utility_knife">Kitchen Utility Knife</string>
+    <string name="demo_data_scissors">Scissors</string>
+    <string name="demo_data_knife_description">Demo record with a typical sharpening angle</string>
     <!-- end stock_data    -->
 
 
