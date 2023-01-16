@@ -16,6 +16,8 @@ import com.mordansoft.angleofknife.models.Knife;
 import com.mordansoft.angleofknife.KnifeAdapter;
 import com.mordansoft.angleofknife.R;
 
+import java.util.prefs.Preferences;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -26,9 +28,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        init();
+        updateUi();
+    }
+
+    private void init(){
         setContentView(R.layout.activity_main);
         createRecyclerView(R.id.rv_main);
+        com.mordansoft.angleofknife.models.Preferences.firstRunWizard(this);
+    }
 
+    private void updateUi(){
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -64,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) { //buttons of left menu
         int id = item.getItemId();
         Intent intent;
-        switch(id){
+        switch(id){ //todo create other items of menu (handbook...)
             case R.id.menuFeedback:
                 intent = new Intent(this, FeedbackActivity.class);
                 startActivity(intent);
