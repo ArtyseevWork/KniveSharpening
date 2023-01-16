@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void init(){
         setContentView(R.layout.activity_main);
-        createRecyclerView(R.id.rv_main);
         com.mordansoft.angleofknife.models.Preferences.firstRunWizard(this);
+        createRecyclerView(R.id.rv_main);
     }
 
     private void updateUi(){

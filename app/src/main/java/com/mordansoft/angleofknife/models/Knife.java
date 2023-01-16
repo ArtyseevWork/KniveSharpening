@@ -203,9 +203,9 @@ public class Knife {
 
         insKnife(context, new Knife(0, context.getString(R.string.demo_data_pocket_knife), context.getString(R.string.demo_data_pocket_knife), 35, sharpeningTime, Status.STATUS_NEW, true));
         insKnife(context, new Knife(0, context.getString(R.string.demo_data_chef_knife),context.getString(R.string.demo_data_pocket_knife), 30, sharpeningTime, Status.STATUS_NEW, true));
-        insKnife(context, new Knife(0, context.getString(R.string.demo_data_meat_knife), context.getString(R.string.demo_data_pocket_knife), 25, sharpeningTime, Status.STATUS_NEW, true));
+        //insKnife(context, new Knife(0, context.getString(R.string.demo_data_meat_knife), context.getString(R.string.demo_data_pocket_knife), 25, sharpeningTime, Status.STATUS_NEW, true));
         insKnife(context, new Knife(0, context.getString(R.string.demo_data_fish_knife), context.getString(R.string.demo_data_pocket_knife), 20, sharpeningTime, Status.STATUS_NEW, true));
-        insKnife(context, new Knife(0, context.getString(R.string.demo_data_fruit_knife), context.getString(R.string.demo_data_pocket_knife), 15, sharpeningTime, Status.STATUS_NEW, true));
+        //insKnife(context, new Knife(0, context.getString(R.string.demo_data_fruit_knife), context.getString(R.string.demo_data_pocket_knife), 15, sharpeningTime, Status.STATUS_NEW, true));
         insKnife(context, new Knife(0, context.getString(R.string.demo_data_utility_knife), context.getString(R.string.demo_data_pocket_knife), 40, sharpeningTime, Status.STATUS_NEW, true));
         insKnife(context, new Knife(0, context.getString(R.string.demo_data_scissors), context.getString(R.string.demo_data_pocket_knife), 70, sharpeningTime, Status.STATUS_NEW, false));
     }
