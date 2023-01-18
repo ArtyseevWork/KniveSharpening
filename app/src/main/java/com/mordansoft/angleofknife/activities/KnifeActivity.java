@@ -127,7 +127,7 @@ public class KnifeActivity extends AppCompatActivity {
             Knife.updKnife(view.getContext(), knife);
             intent.putExtra(Knife.EXTRA_ID, knife.getId());
         } else {
-            long newKnifeId = Knife.insKnife(view.getContext(), knife);
+            long newKnifeId = Knife.updKnife(view.getContext(), knife);
             intent.putExtra(Knife.EXTRA_ID, newKnifeId);
         }
         startActivity(intent);

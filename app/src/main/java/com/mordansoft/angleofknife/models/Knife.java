@@ -143,7 +143,7 @@ public class Knife {
                 float   angle           = cursor.getFloat(3);
                 long    lastSharpening  = cursor.getLong(4);
                 int     status          = cursor.getInt(5);
-                boolean doubleSideSharp    = intToBool(cursor.getInt(6));
+                boolean doubleSideSharp = intToBool(cursor.getInt(6));
                 listKnives.add(new Knife(id,name, description, angle, lastSharpening, status, doubleSideSharp));
             }
             cursor.close();
@@ -155,23 +155,8 @@ public class Knife {
         return listKnives;
     }
 
-    public static long insKnife(Context context, Knife knife){
-        DatabaseHelper databaseHelper = new DatabaseHelper(context);
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();
-        knife.status = Status.STATUS_NEW;
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("name", knife.name);
-        contentValues.put("description", knife.description);
-        contentValues.put("angle", knife.angle);
-        contentValues.put("last_sharpening", knife.lastSharpening);
-        contentValues.put("status", knife.status);
-        contentValues.put("double_side_sharpening", knife.isDoubleSideSharp());
-        long result = db.insert(DatabaseHelper.TBL_KNIVES,null,contentValues);
-        db.close();
-        return (result);
-    }
-
-    public static void updKnife(Context context, Knife knife){
+    public static long updKnife(Context context, Knife knife){
+        long result = knife.getId();
         DatabaseHelper databaseHelper = new DatabaseHelper(context);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -181,13 +166,17 @@ public class Knife {
         contentValues.put("last_sharpening", knife.getLastSharpening());
         contentValues.put("status", knife.getStatus());
         contentValues.put("double_side_sharpening", knife.isDoubleSideSharp());
-
-        db.update(DatabaseHelper.TBL_KNIVES,contentValues, "_id = ?",new String[] {String.valueOf(knife.id)});
+        if (knife.getId() == 0){
+            result = db.insert(DatabaseHelper.TBL_KNIVES,null,contentValues);
+        } else {
+            db.update(DatabaseHelper.TBL_KNIVES,contentValues, "_id = ?",new String[] {String.valueOf(knife.id)});
+        }
         db.close();
+        return  result;
     }
 
     public static void sharpKnife(Context context, Knife knife){ //todo create new toasts in funcs
-        knife.lastSharpening = System.currentTimeMillis()/1000;
+        knife.lastSharpening = System.currentTimeMillis() / 1000;
         updKnife(context,knife);
     }
 
@@ -197,17 +186,15 @@ public class Knife {
     }
 
     public static void insertConstantsData(Context context) {
-        Calendar calendar = Calendar.getInstance();
+        long sharpeningTime = System.currentTimeMillis() / 1000;
 
-        long sharpeningTime = calendar.getTimeInMillis();
-
-        insKnife(context, new Knife(0, context.getString(R.string.demo_data_pocket_knife), context.getString(R.string.demo_data_pocket_knife), 35, sharpeningTime, Status.STATUS_NEW, true));
-        insKnife(context, new Knife(0, context.getString(R.string.demo_data_chef_knife),context.getString(R.string.demo_data_pocket_knife), 30, sharpeningTime, Status.STATUS_NEW, true));
+        updKnife(context, new Knife(0, context.getString(R.string.demo_data_pocket_knife), context.getString(R.string.demo_data_knife_description), 35, sharpeningTime, Status.STATUS_NEW, true));
+        updKnife(context, new Knife(0, context.getString(R.string.demo_data_chef_knife),context.getString(R.string.demo_data_knife_description), 30, sharpeningTime, Status.STATUS_NEW, true));
         //insKnife(context, new Knife(0, context.getString(R.string.demo_data_meat_knife), context.getString(R.string.demo_data_pocket_knife), 25, sharpeningTime, Status.STATUS_NEW, true));
-        insKnife(context, new Knife(0, context.getString(R.string.demo_data_fish_knife), context.getString(R.string.demo_data_pocket_knife), 20, sharpeningTime, Status.STATUS_NEW, true));
+        updKnife(context, new Knife(0, context.getString(R.string.demo_data_fish_knife), context.getString(R.string.demo_data_knife_description), 20, sharpeningTime, Status.STATUS_NEW, true));
         //insKnife(context, new Knife(0, context.getString(R.string.demo_data_fruit_knife), context.getString(R.string.demo_data_pocket_knife), 15, sharpeningTime, Status.STATUS_NEW, true));
-        insKnife(context, new Knife(0, context.getString(R.string.demo_data_utility_knife), context.getString(R.string.demo_data_pocket_knife), 40, sharpeningTime, Status.STATUS_NEW, true));
-        insKnife(context, new Knife(0, context.getString(R.string.demo_data_scissors), context.getString(R.string.demo_data_pocket_knife), 70, sharpeningTime, Status.STATUS_NEW, false));
+        updKnife(context, new Knife(0, context.getString(R.string.demo_data_utility_knife), context.getString(R.string.demo_data_knife_description), 40, sharpeningTime, Status.STATUS_NEW, true));
+        updKnife(context, new Knife(0, context.getString(R.string.demo_data_scissors), context.getString(R.string.demo_data_knife_description), 70, sharpeningTime, Status.STATUS_NEW, false));
     }
 
     public static boolean neighborIsAvailable(Context context, long knifeId, int position){
