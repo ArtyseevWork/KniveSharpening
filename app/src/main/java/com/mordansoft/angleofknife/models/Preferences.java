@@ -20,7 +20,7 @@ public class Preferences {
         Preferences preferences = Preferences.getPreferencesFromFile(context);
         if (preferences.isFirstStart()){
             Knife.insertConstantsData(context);
-            preferences.setCountdown(context,false);
+            preferences.setFirstStart(context,false);
             isFirstStart = true;
         }
         return isFirstStart;
@@ -30,7 +30,7 @@ public class Preferences {
         return firstStart;
     }
 
-    public void setCountdown(Context context, boolean firstStart) {
+    public void setFirstStart(Context context, boolean firstStart) {
         this.firstStart = firstStart;
         SharedPreferences sharedPref = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

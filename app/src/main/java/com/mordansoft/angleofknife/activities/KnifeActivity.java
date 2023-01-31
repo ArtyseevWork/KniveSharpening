@@ -36,7 +36,7 @@ public class KnifeActivity extends AppCompatActivity {
         Bundle arguments = getIntent().getExtras();
         long knifeId =arguments.getLong(Knife.EXTRA_ID);
 
-        if ( knifeId !=0 ){
+        if ( knifeId != 0 ){
             knife = Knife.getKnifeById(this, knifeId);
         } else {
             btnKnifeSharpen = findViewById(R.id.btn_knife_sharpen);

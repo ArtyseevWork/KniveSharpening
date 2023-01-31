@@ -30,7 +30,7 @@ public class FeedbackActivity extends AppCompatActivity {
 
     View.OnClickListener btnShareListener = v -> {
 
-        String shareMessage = getString(R.string.activity_feedback_recomend_text);
+        String shareMessage = getString(R.string.activity_feedback_recommend_text);
         shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
 
         Intent intentInvite = new Intent(Intent.ACTION_SEND);

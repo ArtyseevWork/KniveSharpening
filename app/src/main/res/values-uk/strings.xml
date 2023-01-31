@@ -27,7 +27,7 @@
     </string>
     <string name="activity_feedback_btn_share">Поділитись додатком</string>
     <string name="activity_feedback_btn_rate">Залишити відгук</string>
-     <string name="activity_feedback_recomend_text">Хочу порадити  додаток:</string>
+     <string name="activity_feedback_recommend_text">Хочу порадити  додаток:</string>
 
     <!--end activity_feedback   -->
 

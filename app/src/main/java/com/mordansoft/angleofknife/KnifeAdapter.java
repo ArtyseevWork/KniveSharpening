@@ -7,9 +7,7 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.mordansoft.angleofknife.models.Knife;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
